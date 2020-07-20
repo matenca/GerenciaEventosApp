@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://thymaleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>EventosApp</title>
+    <!--CSS Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style/styleCss.css"> <!-- tag pra puxar o CSS do arquivo .css, pode ser usado em mts views ao msm tempo basta ter essa tag-->
+    <style>
+        h3#botão {
+
+        }
+
+        li {
+        margin-left: 1400px;
+        }
+
+        table#tabela {
+        margin-top: 50px;
+        box-shadow: 1px 1px 4px black;
+        }
+
+        nav#menu {
+        box-shadow: 1px 1px 4px black;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <nav id="menu" class="navbar navbar-expand-lg navbar-dark" style="background-color: #642BA6"> <!-- usei background-color pra colocar uma cor preferencial usando hexadecimal, mas no padrão é usado cor pronta do bootstrap-->
+        <a class="navbar-brand" href="#"><h1>Lista de Eventos</h1></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a href="/cadastrarEvento" button type="button" class="btn btn-primary"><i><svg width="2em" height="1.5em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z"/>
+                        <path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z"/>
+                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    </svg></i>Cadastrar Evento<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+    <table id="tabela" class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Local</th>
+            <th scope="col">Data</th>
+            <th scope="col">Horario</th>
+            <th scope="col">Deletar</th> <!-- coluna para o botão de delete -->
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="evento : ${eventos}">
+            <td><a th:href="${(#mvc.url('EC#detalhesEvento').arg(0, evento.codigo)).build()}"><span th:text="${evento.nome}"></span></a></td> <!-- passando o método "detalhesEvento" sendo aplicado na coluna de nome dos eventos onde clica no nome e vai para os detalhes.-->
+            <td><span th:text="${evento.local}"></span></td>
+            <td><span th:text="${evento.data}"></span></td>
+            <td><span th:text="${evento.horario}"></span></td>
+            <td><a class="btn-small btn-primary" th:href="${(#mvc.url('EC#deletarEvento').arg(0, evento.codigo)).build()}"><i><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <!-- th:href = esse codigo na parte 'EC#deletarEvento' ta sendo passado o método "deletarEvento" utilizando ele aqui em um botão pra apagar eventos existentes, essa linha eu achei mt complexa.-->
+                <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+            </svg></i></a></td></td>
+        </tr>
+        </tbody>
+
+    </table>
+    <!--JavaScript Bootstrap-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

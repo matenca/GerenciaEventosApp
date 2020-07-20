@@ -1,0 +1,109 @@
+        /*CSS EXTERNO NÃO FUNCIONA NO IntelliJ versão gratis*/
+
+        /*CSS index.html (view Lista de Eventos)*/
+
+        h3#botão {
+
+        }
+
+        li {
+        margin-left: 1400px;
+        }
+
+        table#tabela {
+        margin-top: 50px;
+        box-shadow: 1px 1px 4px black;
+        }
+
+        nav#menu {
+        box-shadow: 1px 1px 4px black;
+        }
+
+
+
+        /*CSS formEvento.html (view tela de Cadastro de Eventos)*/
+
+        form#formulario input {
+        border: none;
+        border-bottom: solid 1px;
+        }
+
+        #containerFormulario {
+        box-shadow: 1px 1px 4px black;
+        padding-bottom: 10px;
+        }
+
+        h3#botão {
+        padding-bottom: 50px;
+        margin-bottom: 100px;
+        position: absolute;
+        top: 0px;
+        }
+
+        h1#titulo {
+        position: relative;
+        padding-bottom: 50px;
+        margin-bottom: 100px;
+        }
+
+        li {
+        margin-left: 1346px;
+        }
+
+        nav#menu {
+        box-shadow: 1px 1px 4px black;
+        margin-bottom: 300px;
+        }
+
+
+
+        /*CSS detalhesEvento.html (view de detalhes de um evento especifico, adição de convidados e lista de convidados)*/
+
+        form#formulario input {
+        border: none;
+        border-bottom: solid 1px;
+        }
+
+        #containerFormulario {
+        box-shadow: 1px 1px 4px black;
+        padding-bottom: 10px;
+        }
+
+        #botaoAdd {
+        margin-left: 15px;
+        }
+
+        h3#botão {
+        padding-bottom: 50px;
+        margin-bottom: 100px;
+        position: absolute;
+        top: 0px;
+        }
+
+        table#tabela {
+        padding-bottom: 50px;
+        margin-top: 50px;
+        margin-bottom: 150px;
+        box-shadow: 1px 1px 4px black;
+        }
+
+        table#tabelaConvidados {
+        box-shadow: 1px 1px 4px black;
+        }
+
+        h5#convidados {
+        margin-top: 100px;
+        margin-bottom: 100px;
+        }
+
+        li {
+        margin-left: 1560px;
+        }
+
+        nav#menu {
+        box-shadow: 1px 1px 4px black;
+        }
+
+        div#p p {
+
+        }
